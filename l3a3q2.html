@@ -1,0 +1,129 @@
+<html>
+  <title>
+    Event Registration
+  </title>
+  <body style="background-color: whitesmoke;">
+    <div id="formbox">
+      <h1>Event Registration</h1>
+      <label for="choice">Will you be attending this event?</label>
+      <label style="color: red;">*</label> <br />
+      <input type="radio" id="yes" value="yes" name="choice" />Yes <br />
+      <input type="radio" id="no" value="no" name="choice" />No <br /><br />
+
+      <label for="name">Name</label><label style="color: red;">*</label><br />
+      <input
+        type="text"
+        id="fname"
+        name="fname"
+        placeholder="First Name"
+        required
+      />
+      <input
+        type="text"
+        id="lname"
+        name="lname"
+        style="margin-left: 10px;"
+        placeholder="Last Name"
+        required
+      />
+      <br />
+      <label for="email">Email</label><label style="color: red;">*</label><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="user@example.com"
+        required
+      /><br />
+      <label for="phone">Phone Number</label><label style="color: red;">*</label
+      ><br />
+      <input
+        type="tel"
+        id="countrycode"
+        name="countrycode"
+        style="width: 40px;"
+        required
+      />
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="222-2222"
+        style="width: 165px;"
+        required
+      /><br />
+      <label for="sms">SMS Number</label><br />
+      <input
+        type="tel"
+        id="countrycode"
+        name="countrycode"
+        style="width: 40px;"
+      />
+      <input type="tel" id="sms" name="sms" style="width: 90%;" /><br />
+
+      <label for="guests">How many Guests?</label
+      ><label style="color: red;">*</label><br />
+      <select name="guests" id="guests" required>
+        <option value="" disabled selected>Please Choose</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <br /><br />
+
+      <button type="button" id="register">Register</button>
+    </div>
+  </body>
+</html>
+
+<style>
+  #register {
+    margin-left: 40%;
+    background-color: #a0c18b;
+    border: none;
+    box-shadow: 2px 4px 5px #bbd3ac;
+    color: white;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  #formbox {
+    border-top: solid 40px #a0c18b;
+    box-shadow: 5px 5px 10px black;
+    width: 30%;
+    background-color: white;
+    margin-left: 30%;
+    margin-top: 40px;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  label {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    width: 210px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+</style>

@@ -1,0 +1,46 @@
+<html>
+  <title>
+    Tables
+  </title>
+  <body>
+    <table style="border: 3px solid gray;" rules="all">
+      <tr style="border: 3px solid gray;" rules="all">
+        <th>HeadCol1</th>
+        <th>HeadCol2</th>
+        <th>HeadCol3</th>
+      </tr>
+      <tr style="border: 3px solid gray;" rules="all">
+        <td>Row1Col1</td>
+        <td>Row1Col2</td>
+        <td>Row1Col3</td>
+      </tr>
+      <tr style="border: 3px solid gray;" rules="all">
+        <td>Row2Col1</td>
+        <td>Row2Col2</td>
+        <td>Row2Col3</td>
+      </tr>
+    </table>
+
+    <table style="border: 1px solid gray; margin-top: 100;" rules="all">
+      <tr style="border: 3px solid gray;">
+        <td rowspan="2">Row1-2,Col1</td>
+        <td>Row1,Col2</td>
+        <td>Row1,Col3</td>
+        <td>Row1,Col4</td>
+      </tr>
+      <tr style="border: 3px solid gray;">
+        <td rowspan="2" colspan="2">Row2-3,Col2-3</td>
+        <td>Row2,Col4</td>
+      </tr>
+      <tr style="border: 3px solid gray;">
+        <td>Row3,Col1</td>
+        <td>Row3,Col4</td>
+      </tr>
+      <tr style="border: 3px solid gray;">
+        <td>Row4,Col1</td>
+        <td>Row4,Col2</td>
+        <td colspan="2">Row4,Col3-4</td>
+      </tr>
+    </table>
+  </body>
+</html>

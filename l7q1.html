@@ -1,0 +1,267 @@
+<html>
+  <title>Form</title>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      function validate() {
+        var valid = true;
+        valid = checkEmail($("#email"));
+        valid = valid && checkPass($("#pass"));
+        valid = valid && checkCpass($("#cpass"), $("#pass"));
+        valid = valid && checkName($("#fname"));
+        valid = valid && checkDate($("#bday"));
+        console.log(valid);
+
+        $("#btn").attr("disabled", true);
+        if (valid) {
+          $("#btn").attr("disabled", false);
+        }
+      }
+
+      function checkEmpty(obj) {
+        if ($(obj).val() == "") {
+          return false;
+        }
+        return true;
+      }
+
+      function checkName(obj) {
+        var result = true;
+
+        result = checkEmpty(obj);
+
+        $(obj).css("border", "");
+        $("#name_err").html("");
+        if (!result) {
+          $(obj).css("border", "#FF0000 1px solid");
+          $("#name_err")
+            .html("Required")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        return true;
+      }
+
+      function checkDate(obj) {
+        var result = true;
+
+        $("#date_err").html("");
+        $(obj).css("border", "");
+        result = checkEmpty(obj);
+
+        if (!result) {
+          $(obj).css("border", "#FF0000 1px solid");
+          $("#date_err")
+            .html("Required")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        var date_regex = /^[0-3][0-9]\/[0-1][0-9]\/[0-9]{4}$/;
+        result = date_regex.test($(obj).val());
+
+        if (!result) {
+          $(obj).css("border", "#FF0000 1px solid");
+          $("#date_err")
+            .html("Invalid")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        return result;
+      }
+
+      function checkPass(obj) {
+        var result = true;
+
+        $(obj).css("border", "");
+        $("#pass_err").html("");
+        result = checkEmpty(obj);
+
+        if (!result) {
+          $(obj).css("border", "#FF0000 1px solid");
+          $("#pass_err")
+            .html("Required")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        var pass_regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]).{8,32}$/;
+        result = pass_regex.test($(obj).val());
+
+        if (!result) {
+          $(obj).css("border", "#FF0000 1px solid");
+          $("#pass_err")
+            .html("Invalid")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        return result;
+      }
+
+      function checkCpass(obj1, obj2) {
+        var result = true;
+
+        $("#cpass_err").html("");
+        $(obj1).css("border", "");
+        result = checkEmpty(obj1);
+
+        if (!result) {
+          $(obj1).css("border", "#FF0000 1px solid");
+          $("#cpass_err")
+            .html("Required")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        var cpass = $(obj1).val();
+        console.log(cpass);
+        var pass = $(obj2).val();
+        console.log(pass);
+
+        if (cpass.localeCompare(pass) != 0) {
+          $(obj1).css("border", "#FF0000 1px solid");
+          $("#cpass_err")
+            .html("Password and confirm password not same!")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        return result;
+      }
+
+      function checkEmail(obj) {
+        var result = true;
+
+        $("#email_err").html("");
+        $(obj).css("border", "");
+        result = checkEmpty(obj);
+
+        if (!result) {
+          $(obj).css("border", "#FF0000 1px solid");
+          $("#email_err")
+            .html("Required")
+            .css("color", "red")
+            .css("font-size", "13px");
+          return false;
+        }
+
+        var email_regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,3})+$/;
+        result = email_regex.test($(obj).val());
+
+        if (!result) {
+          $(obj).css("border", "#FF0000 1px solid");
+          $("#email_err")
+            .html("Invalid")
+            .css("color", "red", "font-size", "5px");
+          return false;
+        }
+
+        return result;
+      }
+    </script>
+  </head>
+
+  <body style="background-color: grey">
+    <div id="main">
+      <h2 style="text-align: center; color: #6268a1">
+        Form Validation Exercise
+      </h2>
+
+      <form method="POST">
+        <label>User email</label>
+        <input type="text" name="email" id="email" onblur="validate()" />
+        <div id="email_err" style="display: inline-block"></div>
+        <br /><br />
+
+        <label>Password</label>
+        <input type="password" name="pass" id="pass" onblur="validate()" />
+        <div id="pass_err" style="display: inline-block"></div>
+        <br /><br />
+
+        <label>Confirm Password</label>
+        <input type="password" name="cpass" id="cpass" onblur="validate()" />
+        <div id="cpass_err" style="display: inline-block"></div>
+        <br /><br />
+
+        <label>First Name</label>
+        <input type="text" name="fname" id="fname" onblur="validate()" />
+        <div id="name_err" style="display: inline-block"></div>
+        <br /><br />
+
+        <label>Last Name (optional)</label>
+        <input type="text" id="lname" name="lname" /><br /><br />
+
+        <label>Birthday</label>
+        <input
+          type="text"
+          id="bday"
+          name="bday"
+          placeholder="dd/mm/yy"
+          onblur="validate()"
+        />
+        <div id="date_err" style="display: inline-block"></div>
+        <br /><br />
+        <center>
+          <button type="submit" id="btn" name="btn" disabled="disabled">
+            Submit
+          </button>
+          <button type="submit" id="btn2">Clear</button>
+        </center>
+      </form>
+    </div>
+  </body>
+</html>
+
+<style>
+  #main {
+    width: 400px;
+    height: 400px;
+    background-color: #fbfaff;
+    padding: 20px;
+    border: #dedcff solid 10px;
+    margin-top: 5%;
+    margin-left: 35%;
+  }
+  label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    padding-right: 20px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: grey solid 1px;
+    height: 30px;
+    display: inline-block;
+  }
+  #btn {
+    padding: 5px;
+    width: 70px;
+    border-radius: 5px;
+    border: grey solid 1px;
+    margin-right: 10px;
+  }
+  #btn2 {
+    padding: 5px;
+    width: 70px;
+    border-radius: 5px;
+    border: grey solid 1px;
+    margin-right: 10px;
+  }
+</style>

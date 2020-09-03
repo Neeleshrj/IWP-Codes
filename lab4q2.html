@@ -1,0 +1,156 @@
+<html>
+  <title>
+    Bouncing Balls
+  </title>
+  <body style="background-color: #03a9f4;">
+    <div id="b1"></div>
+    <div id="b2"></div>
+    <div id="b3"></div>
+    <div id="b4"></div>
+    <div id="b5"></div>
+  </body>
+</html>
+
+<style>
+  #b1 {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #e91e63;
+    position: relative;
+    top: 80%;
+    left: 50%;
+
+    animation: a1 4s infinite;
+  }
+  #b2 {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-color: #ffeb3b;
+    position: relative;
+    top: 70%;
+    left: 20%;
+
+    animation: a2 4s infinite;
+  }
+  #b3 {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #9c27b0;
+    position: relative;
+    top: 70%;
+    left: 80%;
+
+    animation: a3 4s infinite;
+  }
+  #b4 {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    background-color: #ff5722;
+    position: relative;
+    top: 20%;
+    left: 60%;
+
+    animation: a4 4s infinite;
+  }
+  #b5 {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    background-color: #e056fd;
+    position: relative;
+    top: 43%;
+    left: 13%;
+
+    animation: a5 4s infinite;
+  }
+
+  @keyframes a1 {
+    50% {
+      width: 100px;
+      height: 100px;
+      transform: translate3D(200px, -500px, 0px);
+    }
+    75% {
+      width: 100px;
+      height: 100px;
+      transform: translate3D(300px, -80px, 0px);
+    }
+    100% {
+      width: 110px;
+      height: 80px;
+      transform: translateY(0px);
+    }
+  }
+  @keyframes a2 {
+    50% {
+      width: 60px;
+      height: 60px;
+      transform: translate3D(-200px, -120px, 0px);
+    }
+    75% {
+      width: 67px;
+      height: 40px;
+      transform: translate3D(200px, -450px, 0px);
+    }
+    100% {
+      width: 60px;
+      height: 60px;
+      transform: translateY(0px);
+    }
+  }
+  @keyframes a3 {
+    50% {
+      width: 30px;
+      height: 30px;
+      transform: translate3D(-870px, -340px, 0px);
+    }
+    75% {
+      width: 37px;
+      height: 30px;
+      transform: translate3D(300px, -150px, 0px);
+    }
+    100% {
+      width: 30px;
+      height: 30px;
+      transform: translateY(0px);
+    }
+  }
+  @keyframes a4 {
+    50% {
+      width: 80px;
+      height: 80px;
+      transform: translate3D(200px, 340px, 0px);
+    }
+    75% {
+      width: 80px;
+      height: 80px;
+      transform: translate3D(-700px, -400px, 0px);
+    }
+    100% {
+      width: 90px;
+      height: 60px;
+      transform: translateY(0px);
+    }
+  }
+  @keyframes a5 {
+    50% {
+      width: 150px;
+      height: 150px;
+      transform: translate3D(340px, -157px, 0px);
+    }
+    75% {
+      width: 150px;
+      height: 150px;
+      transform: translate3D(-147px, -568px, 0px);
+    }
+    100% {
+      width: 160px;
+      height: 130px;
+      transform: translateY(0px);
+    }
+  }
+</style>
